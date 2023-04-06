@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            certificate
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width,initial-scale=1">
+        <link href="{% static 'images/unnamed.png' %}"rel="icon">
+    </head>
+<center>
+    <style>
+    .signature, .title { 
+    float:left;
+      border-top: 1px solid #000;
+      width: 200px; 
+      text-align: center;
+    }
+    </style>
+    <body>
+      
+    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878">
+    <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+           
+           <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+           <br>
+           <span style="font-size:25px"><i>This is to certify that</i></span>
+           <br><br>
+           {% for x in varas%}
+           <span style="font-size:30px"><b>{{x.GK_idD.user}}</b></span><br/><br/>
+           <span style="font-size:25px"><i>has completed the </i></span> <br/><br/>
+           <span style="font-size:30px;color: red;">EDURE QUIZ COMPETITION</span> <br/><br/>
+           <span style="font-size:20px;color: green;">with score of {{x.gk_score}} <b>with {{x.gk_percent}}%</b></span> <br/><br/>
+           <span style="font-size:25px"><i>Completed Date</i></span><br>
+           <span style="font-size:25px"><i>{{x.gk_date}}</i></span><br><br>
+           <h3 style="color: blue;font-weight: bold;font-size: large;">EDURE</h3>
+           {% endfor %}
+          
+    <table style="margin-top:40px;float:left">
+    
+    
+    </table>
+    </div>
+    </div>
+    
+    </center>
+</html>
+</body>
+     
+    

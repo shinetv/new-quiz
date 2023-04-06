@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            QUIZ-REGISTER
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width,initial-scale=1">
+        <link href="{% static 'images/unnamed.png' %}"rel="icon">
+    </head>
+    <style>
+         .file {
+        visibility: hidden;
+        position: absolute;
+    }
+    </style>
+    <body>
+        
+        <div class="container">
+            <div class="row content">
+                <div class="col-md-6 mb-3">
+        
+                    <img src="{% static 'images/register.jpg' %}" class="img-fluid" alt="image">
+
+                </div>
+                <div class="col-md-6">
+                    <center><button   class="btn btn-success signin text mb-3">SIGNUP HERE</button></center>
+                    <form action="/register/"  method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="Name" style="color: black;font-weight: bold;">Student Name</label>
+                            <input type="text" name="user" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="color: black;font-weight: bold;">E-MAIL</label>
+                            <input type="email" name="email" class="form-control" placeholder="abc@gmail.com" required >
+                        </div>
+                        <div class="form-group">
+                            <label for="number" style="color: black;font-weight: bold;">Course&Branch</label>
+                            <input type="text" name="Course" placeholder="B-tech/CSE" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="number" style="color: black;font-weight: bold;">Phone Number</label>
+                            <input type="text" name="Phone_number" class="form-control" required>
+                        </div>
+                        <!-- <div class="form-group">
+                        <input type="file" name="userimage" class="file" accept="image/*">
+                            <div class="input-group my-6 col-md-12" >
+                                <input type="text" class="form-control" disabled
+                                    placeholder="Upload File" name="userimage" id="file" required>
+                    
+                        <div class="input-group-append">
+                            <button type="button" class="browse btn btn-primary">Browse...</button>
+                        </div>
+                    </div><br> -->
+                   
+                       
+                        <button type="submit" class="btn btn-class" style="width: 200px;">Register</button>
+                        <h5 style="color : red;text-align:center;padding: 0;">{{msgs}}</h5>
+                    </form>
+                </div>
+                <!-- <h2 style="color : red;text-align:center;padding: 20px;">{{msgs}}</h2> -->
+
+         
+            </div>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        <script>
+            $(document).on("click", ".browse", function () {
+                var file = $(this).parents().find(".file");
+                file.trigger("click");
+            });
+            $('input[type="file"]').change(function (e) {
+                var fileName = e.target.files[0].name;
+                $("#file").val(fileName);
+    
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // get loaded data and render thumbnail.
+                    document.getElementById("preview").src = e.target.result;
+                };
+                // read the image file as a data URL.
+                reader.readAsDataURL(this.files[0]);
+            });
+        </script>
+    </body>   
+</html>

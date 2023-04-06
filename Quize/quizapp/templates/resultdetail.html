@@ -1,0 +1,128 @@
+{% load static %}
+<html>
+
+<head>
+    <title>
+        DataFlair Online Quiz with Django
+    </title>
+    <link href="{% static 'images/unnamed.png' %}" rel="icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: red;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b30000;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item active">
+
+                </li>
+                </li>
+                <li class="nav-item active">
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/addquest/"><button class="btn btn-warning">ADD GK QUESTION</button> </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/all_detai/"><button class="btn btn-warning">Results</button> </a>
+
+                </li>
+
+
+
+
+
+
+
+            </ul>
+        </div>
+
+        <span><a class="greet" href="/logout/"><button class="btn btn-danger"> Logout</button></a></span>
+        <p style="color: white;" id="demo"></p>
+
+    </nav><br>
+   
+    <div class="container">
+        <a href="/dowcv/"><button type="button" class="btn btn-danger">Download CSV</button></a>
+        <div class="title">
+            <h3 style="text-align: center;color: black;">Students Scores Here!</h3>
+        </div><br>
+        <div class="table_overflow">
+            <table id="example" class="table table-bordered"
+                style="width:100%; table-layout: fixed;word-break: break-all;">
+                <thead>
+                    <tr>
+                        <!-- <th class="head" scope="col">Sl.No.</th> -->
+                        <th class="head" style="color: red;" scope="col">S.no</th>
+                        <th class="head" style="color: red;" scope="col">Student</th>
+                        <th class="head" style="color: red;" scope="col">Login Time</th>
+                        <th class="head" style="color: red;" scope="col">Score</th>
+                        <th class="head" style="color: red;" scope="col">Percentage</th>
+                        <th class="head" style="color: red;" scope="col">Corrected</th>
+                        <th class="head" style="color: red;" scope="col">Wrong</th>
+                        <th class="head" style="color: red;" scope="col">Total</th>
+                        <th class="head" style="color: red;" scope="col">Date&Time</th>
+                        <th class="head" style="color: red;" scope="col">E-mail</th>
+
+
+                        <!-- <th scope="col">Share</th> -->
+                    </tr>
+                </thead>
+                {% for x in varp %}
+                <tbody>
+
+                    <tr>
+                        <!-- <th scope="row">1</th> -->
+                        <!-- <td>{{x.id}}</td> -->
+                        <td>{{forloop.counter}}</td>
+                        <td>{{x.GK_idD.user}}</td>
+                        <td>{{x.GK_idD.logintime}}</td>
+                        <td> {{x.gk_score}}</td>
+                        <td style="color: green;">{{x.gk_percent}}</td>
+                        <td>{{x.gk_correct}}</td>
+                        <td> {{x.gk_wrong}}</td>
+                        <td>{{x.gk_total}}</td>
+                        <td>{{x.gk_date}}/{{x.gk_time}}</td>
+                        <td><a href=""><button type="submit" class="btn btn-warning">E-mail</button></a></td>
+
+                    </tr>
+
+
+
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+</body>
+
+</html>

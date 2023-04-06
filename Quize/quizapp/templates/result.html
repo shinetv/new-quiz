@@ -1,0 +1,107 @@
+{% load static %}
+
+    <head>
+        <title>
+            DataFlair Online Quiz with Django
+        </title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min(1).css' %}">
+        <link href="{% static 'images/unnamed.png' %}"rel="icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+    <style>
+        .greet{
+          font-size: 18px;
+          color: #fff;
+          margin-right: 20px;
+        }
+        ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: red; 
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+      }
+      </style>
+    <body>     
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+             
+              <ul class="navbar-nav">
+                
+                <li class="nav-item active">
+                  
+                </li>
+                </li>
+                <li class="nav-item active">
+                  
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/addquest/"><button class="btn btn-warning" disabled >ADD QUESTION</button> </a>
+                  
+                </li>
+                
+                
+               
+                  
+                  
+               
+                
+              </ul>
+            </div>
+          
+            <span ><a  class="greet" href="/logout/"><button class="btn btn-danger"> Logout</button></a></span>
+            <p style="color: white;" id="demo"></p>
+          
+          </nav>   <br><br><br><br><br><br>
+       
+          <div class="container ">
+
+            <div class="card-columns" style="padding: 10px; margin: 20px;">
+              <div class="card" align="centre " style="width: 32rem; border:5px black solid">
+                <img class="card-img-top" src="http://kmit.in/emagazine/wp-content/uploads/2018/02/karnataka-results.jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Score: {{varas.gk_score}}</h5>
+        
+                  <p class="card-text">Percentage: {{gk_percent}}%</p>
+                 
+                  <p class="card-text">Correct answers: {{varas.gk_correct}}</p>
+                  <p class="card-text">Incorrect answers: {{varas.gk_wrong}}</p>
+                  <p class="card-text">Total questions: {{varas.gk_total}}</p>
+                  <h5>All the best for next quiz!</h5>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+                               
+   
+        
+    
+
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
